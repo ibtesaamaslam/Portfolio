@@ -15,7 +15,7 @@ const projects = [
     impact: 'Achieved 97%+ accuracy in dynamic gesture recognition using MediaPipe and LSTM architectures.',
     tech: ['Python', 'OpenCV', 'TensorFlow', 'MediaPipe'],
     tags: ['Computer Vision', 'Deep Learning', 'Accessibility', 'AI'],
-    image: 'https://images.unsplash.com/photo-1516733968668-dbdce39c46ef?q=80&w=1200&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1543332164-6e82f355badc?q=80&w=1200&auto=format&fit=crop',
   },
   {
     title: 'Customer Churn Prediction',
