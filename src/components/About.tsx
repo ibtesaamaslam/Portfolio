@@ -1,11 +1,74 @@
 import { motion } from 'motion/react';
-import { BrainCircuit, Code2, Database, Rocket } from 'lucide-react';
+import { 
+  BrainCircuit, 
+  Code2, 
+  Database, 
+  Rocket,
+  Cpu,
+  Flame,
+  Network,
+  Eye,
+  Calculator,
+  Terminal,
+  Zap,
+  Container,
+  Component,
+  Atom,
+  Shield,
+  Table,
+  Binary,
+  Box,
+  Workflow,
+  Globe,
+  GitBranch,
+  TrendingUp
+} from 'lucide-react';
 
 const skills = [
-  { name: 'AI & ML', icon: BrainCircuit, tools: ['TensorFlow', 'PyTorch', 'Transformers', 'OpenCV', 'Scikit-Learn'] },
-  { name: 'Engineering', icon: Code2, tools: ['Python', 'FastAPI', 'Flask', 'Next.js', 'React'] },
-  { name: 'Data & Cloud', icon: Database, tools: ['SQL', 'Supabase', 'Firebase', 'Pandas', 'NumPy'] },
-  { name: 'Deployment', icon: Rocket, tools: ['Docker', 'ONNX', 'REST APIs', 'Git', 'Inference Pipelines'] },
+  { 
+    name: 'AI & ML', 
+    icon: BrainCircuit, 
+    tools: [
+      { name: 'TensorFlow', icon: Cpu },
+      { name: 'PyTorch', icon: Flame },
+      { name: 'Transformers', icon: Network },
+      { name: 'OpenCV', icon: Eye },
+      { name: 'Scikit-Learn', icon: Calculator }
+    ] 
+  },
+  { 
+    name: 'Engineering', 
+    icon: Code2, 
+    tools: [
+      { name: 'Python', icon: Terminal },
+      { name: 'FastAPI', icon: Zap },
+      { name: 'Flask', icon: Container },
+      { name: 'Next.js', icon: Component },
+      { name: 'React', icon: Atom }
+    ] 
+  },
+  { 
+    name: 'Data & Cloud', 
+    icon: Database, 
+    tools: [
+      { name: 'SQL', icon: Database },
+      { name: 'Supabase', icon: Shield },
+      { name: 'Firebase', icon: Flame },
+      { name: 'Pandas', icon: Table },
+      { name: 'NumPy', icon: Binary }
+    ] 
+  },
+  { 
+    name: 'Deployment', 
+    icon: Rocket, 
+    tools: [
+      { name: 'Docker', icon: Box },
+      { name: 'ONNX', icon: Workflow },
+      { name: 'REST APIs', icon: Globe },
+      { name: 'Git', icon: GitBranch },
+      { name: 'Inference Pipelines', icon: TrendingUp }
+    ] 
+  },
 ];
 
 export function About() {
@@ -62,11 +125,11 @@ export function About() {
             >
               <skill.icon className="w-8 h-8 text-accent2 mb-4 group-hover:text-accent1 transition-colors" />
               <h3 className="text-xl font-heading font-semibold text-text mb-4">{skill.name}</h3>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {skill.tools.map((tool) => (
-                  <li key={tool} className="text-sm text-text-muted flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent1/50" />
-                    {tool}
+                  <li key={tool.name} className="text-sm text-text-muted flex items-center gap-3">
+                    <tool.icon className="w-3.5 h-3.5 text-accent1/70" />
+                    {tool.name}
                   </li>
                 ))}
               </ul>

@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Phone } from 'lucide-react';
 
 export function Footer() {
   return (
@@ -18,6 +18,13 @@ export function Footer() {
         </div>
 
         <div className="flex items-center gap-6">
+          <a
+            href="tel:+923115616854"
+            className="text-text-muted hover:text-text transition-colors focus:outline-none focus:ring-2 focus:ring-accent1 rounded-full p-2"
+            aria-label="Phone"
+          >
+            <Phone className="w-5 h-5" />
+          </a>
           <a
             href="https://github.com/ibtesaamaslam"
             target="_blank"

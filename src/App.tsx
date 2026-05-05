@@ -8,6 +8,7 @@ import { Hero } from './components/Hero';
 import { ProjectsGrid } from './components/ProjectsGrid';
 import { About } from './components/About';
 import { Experience } from './components/Experience';
+import { SkillsSection } from './components/SkillsSection';
 import { ContactForm } from './components/ContactForm';
 import { Footer } from './components/Footer';
 import { CustomCursor } from './components/CustomCursor';
@@ -37,6 +38,7 @@ export default function App() {
         <Hero />
         <Experience />
         <ProjectsGrid />
+        <SkillsSection />
         <About />
         <ContactForm />
       </main>

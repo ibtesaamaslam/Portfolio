@@ -1,5 +1,4 @@
 import { motion } from 'motion/react';
-import { ExternalLink, Github } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '../lib/utils';
 
@@ -8,13 +7,13 @@ interface ProjectCardProps {
   description: string;
   impact: string;
   tech: string[];
+  tags: string[];
   image: string;
-  demoUrl?: string;
-  githubUrl?: string;
   index: number;
+  key?: string | number;
 }
 
-export function ProjectCard({ title, description, impact, tech, image, demoUrl, githubUrl, index }: ProjectCardProps) {
+export function ProjectCard({ title, description, impact, tech, tags, image, index }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -35,6 +34,7 @@ export function ProjectCard({ title, description, impact, tech, image, demoUrl, 
           loading="lazy"
           referrerPolicy="no-referrer"
         />
+        
         <div className="absolute inset-0 bg-base/20 group-hover:bg-transparent transition-colors duration-500" />
       </div>
 
@@ -52,7 +52,7 @@ export function ProjectCard({ title, description, impact, tech, image, demoUrl, 
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-4">
           {tech.map((t, i) => (
             <motion.span
               key={t}
@@ -69,30 +69,18 @@ export function ProjectCard({ title, description, impact, tech, image, demoUrl, 
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
-          {demoUrl && (
-            <a
-              href={demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-text hover:text-accent2 transition-colors focus:outline-none focus:ring-2 focus:ring-accent1 rounded"
+        {/* Dynamic Tags */}
+        <div className="flex flex-wrap gap-2 mb-8">
+          {tags.map((tag, i) => (
+            <span
+              key={tag}
+              className="px-2 py-0.5 text-[10px] uppercase tracking-wider font-bold rounded bg-accent2/10 text-accent2 border border-accent2/20"
             >
-              Live Demo
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          )}
-          {githubUrl && (
-            <a
-              href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-medium text-text-muted hover:text-text transition-colors focus:outline-none focus:ring-2 focus:ring-accent1 rounded"
-            >
-              Source
-              <Github className="w-4 h-4" />
-            </a>
-          )}
+              {tag}
+            </span>
+          ))}
         </div>
+
       </div>
     </motion.div>
   );

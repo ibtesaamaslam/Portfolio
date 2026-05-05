@@ -1,9 +1,44 @@
-import { motion } from 'motion/react';
-import { ArrowRight, Download } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ArrowRight, Download, Check, Loader2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export function Hero() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [downloadStatus, setDownloadStatus] = useState<'idle' | 'downloading' | 'success'>('idle');
+
+  const handleDownload = async () => {
+    if (downloadStatus !== 'idle') return;
+    
+    setDownloadStatus('downloading');
+    
+    // Simulate/ensure download logic
+    try {
+      const response = await fetch('/resume.pdf');
+      if (!response.ok) throw new Error('File not found');
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Muhammad_Ibtesaam_Aslam_Resume.pdf';
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+      
+      setDownloadStatus('success');
+      setTimeout(() => setDownloadStatus('idle'), 3000);
+    } catch (error) {
+      console.error('Download failed:', error);
+      // Fallback to direct link behavior if fetch fails (e.g. if I haven't fixed the file yet)
+      const a = document.createElement('a');
+      a.href = '/resume.pdf';
+      a.download = 'Muhammad_Ibtesaam_Aslam_Resume.pdf';
+      a.click();
+      setDownloadStatus('success');
+      setTimeout(() => setDownloadStatus('idle'), 3000);
+    }
+  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -61,24 +96,68 @@ export function Hero() {
           
           <div className="flex flex-wrap items-center gap-4">
             <a
-              href="#work"
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-text text-base font-medium text-base rounded-lg overflow-hidden transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-accent1 focus:ring-offset-2 focus:ring-offset-base"
+              href="#contact"
+              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-text text-base font-medium rounded-lg overflow-hidden transition-transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-accent1"
             >
               <span className="relative z-10 flex items-center gap-2">
-                View work
+                Let's talk
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-accent1 to-accent2 opacity-0 group-hover:opacity-10 transition-opacity" />
             </a>
-            
+
             <a
-              href="/resume.pdf"
-              download="Muhammad_Ibtesaam_Aslam_Resume.pdf"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-text font-medium rounded-lg border border-white/10 hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-accent1"
+              href="#work"
+              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-text font-medium rounded-lg border border-white/10 hover:bg-white/5 transition-all focus:outline-none focus:ring-2 focus:ring-accent1"
             >
-              Download résumé
-              <Download className="w-4 h-4 text-text-muted group-hover:text-text transition-colors" />
+              <span className="relative z-10 flex items-center gap-2 text-text">
+                View work
+              </span>
             </a>
+            
+            <button
+              onClick={handleDownload}
+              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-text font-medium rounded-lg border border-white/10 hover:bg-white/5 transition-all focus:outline-none focus:ring-2 focus:ring-accent1 min-w-[200px]"
+            >
+              <AnimatePresence mode="wait">
+                {downloadStatus === 'idle' && (
+                  <motion.div
+                    key="idle"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="flex items-center gap-2"
+                  >
+                    Download résumé
+                    <Download className="w-4 h-4 text-text-muted group-hover:text-text transition-colors" />
+                  </motion.div>
+                )}
+                {downloadStatus === 'downloading' && (
+                  <motion.div
+                    key="downloading"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    className="flex items-center gap-2"
+                  >
+                    <Loader2 className="w-4 h-4 animate-spin text-accent1" />
+                    Processing...
+                  </motion.div>
+                )}
+                {downloadStatus === 'success' && (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    className="flex items-center gap-2 text-accent2"
+                  >
+                    <Check className="w-4 h-4" />
+                    Downloaded!
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </button>
           </div>
         </motion.div>
 
