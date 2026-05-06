@@ -13,12 +13,12 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-95%25-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Framer Motion](https://img.shields.io/badge/Framer-Motion-0055FF?style=flat-square&logo=framer&logoColor=white)](https://www.framer.com/motion/)
-[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://portfolio-eight-azure-61.vercel.app)
+[![Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://ibtesaamportfolio.vercel.app/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
 
 <br/>
 
-[![Live Demo](https://img.shields.io/badge/🌐%20Live%20Demo-portfolio--eight--azure--61.vercel.app-0070f3?style=for-the-badge)](https://portfolio-eight-azure-61.vercel.app)
+[![Live Demo](https://img.shields.io/badge/🌐%20Live%20Demo-https://ibtesaamportfolio.vercel.app/-0070f3?style=for-the-badge)](https://ibtesaamportfolio.vercel.app/)
 [![GitHub Repo](https://img.shields.io/badge/📂%20Repository-ibtesaamaslam%2FPortfolio-181717?style=for-the-badge&logo=github)](https://github.com/ibtesaamaslam/Portfolio)
 
 <br/>
@@ -53,7 +53,7 @@
 
 This is a **personal developer portfolio** built to be visually distinctive, performant, and genuinely human in its tone — not another template-driven, AI-buzzword-filled showcase. Every design decision was made with intention: the glassmorphism layers, the neon accents, the spring-physics micro-interactions, the dark/light mode toggle, the custom cursor — all of it earned, not copied.
 
-The portfolio is built on **React 19 + Vite** with **TypeScript** at 95%+ coverage, styled with **Tailwind CSS v4**, and animated with **Framer Motion** and **Lottie React**. It is live at [portfolio-eight-azure-61.vercel.app](https://portfolio-eight-azure-61.vercel.app) and deploys automatically on every push to `main`.
+The portfolio is built on **React 19 + Vite** with **TypeScript** at 95%+ coverage, styled with **Tailwind CSS v4**, and animated with **Framer Motion** and **Lottie React**. It is live at [https://ibtesaamportfolio.vercel.app/](https://ibtesaamportfolio.vercel.app/) and deploys automatically on every push to `main`.
 
 **What makes this different from a typical portfolio template?**
 
@@ -67,7 +67,7 @@ The portfolio is built on **React 19 + Vite** with **TypeScript** at 95%+ covera
 
 ## 2. Live Demo
 
-**🔗 [portfolio-eight-azure-61.vercel.app](https://portfolio-eight-azure-61.vercel.app)**
+**🔗 [https://ibtesaamportfolio.vercel.app/](https://ibtesaamportfolio.vercel.app/)**
 
 ---
 
